@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Changee Learning Path - 邁向進階之路</title>
+
+		<meta name="description" content="如何從零開始，利用網路資源訓練成為前端工程師">
+		<meta name="author" content="Mark Wu">
+    <meta property="og:title" content="Changee Learning Path - 與 API 合作">
+    <meta property="og:description" content="在網路的時代，我們在開始學習新領域時，可以透過 Google 找到許多學習的「資訊」，然而過多的資訊反而無法判斷什麼才是適合自己的「資源」。現有的學習資源非常豐富，但卻散落在各處，使得「自我學習」時總是花費大量時間在搜尋適合自己的資訊。因此我們希望能夠建立 Changee Learning Path「學習路徑平台」，整合資源與資訊，透過「學習分類帽」、「學習軌跡」、「實體資源」三個主要項目，建立方便自學的「學習路徑平台」。" />
+    <meta property="og:image" content="http://week8.learning-path.info/images/week8-graph.png">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+		<script>
+			if( window.location.search.match( /print-pdf/gi ) ) {
+				var link = document.createElement( 'link' );
+				link.rel = 'stylesheet';
+				link.type = 'text/css';
+				link.href = 'css/print/pdf.css';
+				document.getElementsByTagName( 'head' )[0].appendChild( link );
+			}
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div id="seo-wrapper">
+      <h1>Changee Learning Path - 邁向進階之路</h1>
+      <p>
+        在網路的時代，我們在開始學習新領域時，可以透過 Google 找到許多學習的「資訊」，然而過多的資訊反而無法判斷什麼才是適合自己的「資源」。現有的學習資源非常豐富，但卻散落在各處，使得「自我學習」時總是花費大量時間在搜尋適合自己的資訊。因此我們希望能夠建立 Changee Learning Path「學習路徑平台」，整合資源與資訊，透過「學習分類帽」、「學習軌跡」、「實體資源」三個主要項目，建立方便自學的「學習路徑平台」。
+      </p>
+      <img src="http://week8.learning-path.info/images/week8-graph.png">
+    </div>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<section data-background="images/congruent_pentagon.png" data-background-repeat="repeat">
+						<h1>邁向進階之路</h1>
+						<h3>Sass、Compass、fire.app、AngularJS</h3>
+						<img src="images/learningpath.jpg">
+						<p>
+							<small><a target="_blank" href="https://www.facebook.com/changeeinfo">Changee</a> | <a target="_blank" href="http://learning-path.info">Learning Path</a></small>
+						</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1 style="text-transform: none">Sass</h1>
+						<p>使用預處理語言加速開發維護</p>
+					</section>
+					<section>
+						<h2>為什麼要使用 Sass</h2>
+						<ul>
+							<li>CSS 撰寫簡單，但寫多了要維護偵錯很困難</li>
+              <li>固定的顏色、字型、數字，都可以設定成變數</li>
+              <li>將重複的 CSS 提出來，實現 DRY</li>
+              <li>預處理，有 bug 直接顯示錯誤</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Sass, SCSS</h2>
+						<ul>
+              <li>CSS 程式碼就是合法的 SCSS，附檔名 .scss</li>
+              <li>Sass 附檔名 .sass，更簡潔的程式碼</li>
+              <li>初學者可以直接從 SCSS 開始寫</li>
+            </ul>
+					</section>
+					<section>
+						<h2>巢狀寫法</h2>
+						<ul>
+							<li>SCSS<pre style="width: 400px"><code>
+.content {
+  border: 1px solid #ccc; 
+  padding: 20px;
+  h2 {
+    font-size: 3em;
+    margin: 20px 0;
+  }
+  p {
+    font-size: 1.5em;
+    margin: 15px 0;
+  }
+}
+</code></pre></li>
+						</ul>
+            <ul>
+              <li>CSS<pre style="width: 400px"><code>
+.content {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+.content h2 {
+  font-size: 3em;
+  margin: 20px 0;
+}
+.content p {
+  font-size: 1.5em;
+  margin: 15px 0;
+}</code></pre></li>
+            </ul>
+					</section>
+					<section>
+						<h2>巢狀寫法（The Parent Selector）</h2>
+						<ul>
+							<li>SCSS<pre style="width: 400px"><code>.content {
+  border: 1px solid #ccc;
+  padding: 20px;
+  .callout {
+    border-color: red;
+  }
+  &.callout {
+    border-color: green;
+  }
+}</code></pre></li>
+            </ul>
+            <ul>
+							<li>CSS<pre style="width: 400px"><code>.content {
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+.content .callout {
+  border-color: red;
+}
+.content.callout {
+  border-color: green;
+}</code></pre></li>
+						</ul>
+					</section>
+          <section>
+            <h2>The Parent Selector 還可以這樣寫</h2>
+            <ul>
+              <li>SCSS<pre style="width: 400px"><code>.sidebar {
+  float: right;
+  width: 300px;
+  .users & {
+    width: 400px;
+  }
+}</code></pre></li>
+            </ul>
+            <ul>
+              <li>CSS<pre style="width: 400px"><code>.sidebar {
+  float: right;
+  width: 300px;
+}
+.users .sidebar {
+  width: 400px;
+}</code></pre></li>
+            </ul>
+          </section>
+					<section>
+						<h1>練習時間</h1>
+            <p data-height="468" data-theme-id="0" data-slug-hash="Eryci" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/psdmac/pen/Eryci/'>Eryci</a> by Tzu-Sheng Wu (<a href='http://codepen.io/psdmac'>@psdmac</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//codepen.io/assets/embed/ei.js"></script>
+            <ul>
+              <li>巢狀的寫法很直覺簡單</li>
+              <li>不要巢狀所有的東西，避免四層以上的巢狀</li>
+            </ul>
+					</section>
+          <section>
+            <h2>變數</h2>
+            <ul>
+              <li>文字大小、顏色、字串都可以設定成變數</li>
+              <li>Sass 變數開頭用 $</li>
+              <li><pre style="width: 800px"><code>// Booleans
+$rounded: false;
+$shadow: true;
+// Numbers
+$rounded: 4px;
+$line-height: 1.5;
+$font-size: 3rem;
+// Colors
+$base: purple;
+$border: rgba(0, 255, 0, 0.5);
+$shadow: #333;
+// Strings
+$header: 'Helvetica Neue';
+$callout: Arial;
+$message: "Loading...";
+// Lists
+$authors: nick, dan, aimee, drew;
+              </code></pre></li>
+            </ul>
+          </section>
+          <section>
+            <h2>變數使用情境</h2>
+            <ul>
+              <li>老闆說：我希望這個基本色在深一點</li>
+              <li>工程師：（把 CSS color, backgound 有用到基本色的，通通拿出來改）</li>
+              <li>老闆：好像還是原本比較好，改回來好了</li>
+              <li>工程師：(╯°□°）╯︵ ┻━┻</li>
+            </ul>
+            <p>如果撰寫專案時有把基本色、強調色都設定成變數，那只要該一個，全都改了</p>
+          </section>
+          <section>
+            <h2>顏色函數</h2>
+            <p>（給我一個基本色，就有千千萬萬個顏色）</p>
+            <pre><code>// 亮
+lighten($color, $amount)
+// 暗
+darken($color, $amount)
+// 飽和度
+saturate($color, $amount)
+// 降低飽和度
+desaturate($color, $amount)
+// 轉成灰階
+grayscale($color)
+// 取得補色
+complement($color)
+// 取得對比色
+invert($color)
+            </code></pre>
+            <p><a target="_blank" href="http://jackiebalzer.com/color">A visual guide to Sass & Compass Color Functions</a></p>
+          </section>
+          <section>
+            <h1>練習時間</h1>
+          </section>
+				</section>
+
+				<section>
+					<section>
+						<h1>DRY</h1>
+						<p>Don't repeat yourself</p>
+					</section>
+					<section>
+						<h2>mixin</h2>
+            <p>使用時機：大量重複樣式</p>
+						<ul>
+							<li><pre style="width: 400px"><code>// SCSS
+@mixin button($radius, $color) {
+  border-radius: $radius;
+  color: $color;
+}
+.btn-a {
+  @include button(4px, #000);
+}
+// CSS
+.btn-a {
+  border-radius: 4px;
+  color: #000;
+}</code></pre></li>
+						</ul>
+						<ul>
+							<li><pre style="width: 400px"><code>// SCSS
+@mixin transition($val) {
+  -webkit-transition: $val;
+  -moz-transition: $val;
+  transition: $val;
+}
+.btn-a {
+  @include transition(color 0.3s
+ease-in, background 0.5s ease-out);
+}
+// CSS
+.btn-a {
+  -webkit-transition: color 0.3s ease-in, background 0.5s ease-out;
+  -moz-transition: color 0.3s ease-in, background 0.5s ease-out;
+  transition: color 0.3s ease-in, background 0.5s ease-out;
+}</code></pre></li>
+						</ul>
+					</section>
+					<section>
+						<h2>extend</h2>
+            <p>使用時機：當你會用到群組選擇時 A, B</p> 
+            <ul>
+              <li>
+                <pre style="width: 400px"><code>// SCSS
+.btn-a {
+  background: #777;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+.btn-b {
+  @extend .btn-a;
+  background: #ff0;
+}</code></pre>
+              </li>
+            </ul>
+						<ul>
+              <li>
+                <pre style="width: 400px"><code>// CSS
+.btn-a,
+.btn-b {
+  background: #777;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  text-transform: uppercase;
+}
+.btn-b {
+  background: #ff0;
+}</code></pre>
+              </li>
+            </ul>
+					</section>
+					<section>
+						<h2>閱讀清單</h2>
+						<ul>
+							<li><a target="_blank" href="http://ithelp.ithome.com.tw/ironman6/player/sfisonly/alll/1">IT 鐵人幫 - 30天掌握Sass語法</a></li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1><a target="_blank" href="http://compass-style.org/">Compass</a></h1>
+					</section>
+					<section>
+						<h2>處理煩人的瀏覽器前綴</h2>
+            <ul>
+              <li><a target="_blank" href="http://compass-style.org/examples/compass/css3/background-clip/">Background Clip</a></li>
+              <li><a target="_blank" href="http://compass-style.org/examples/compass/css3/gradient/">Background Gradients</a></li>
+              <li><a target="_blank" href="http://compass-style.org/examples/compass/css3/background-origin/">Background Origin</a></li>
+              <li><a target="_blank" href="http://compass-style.org/examples/compass/css3/background-size/">Background Size</a></li>
+              <li><a target="_blank" href="http://compass-style.org/examples/compass/css3/input-placeholder/">Input Placeholder</a></li>
+              <li><a target="_blank" href="http://compass-style.org/examples/compass/css3/opacity/">Opacity</a></li>
+              <li><a target="_blank" href="http://compass-style.org/examples/compass/css3/box_shadow/">Box-shadow</a></li>
+              <li><a target="_blank" href="http://compass-style.org/examples/compass/css3/box_sizing/">Box-sizing</a></li>
+            </ul>
+					</section>
+					<section>
+						<h2><a target="_blank" href="http://compass-style.org/help/tutorials/spriting/">CSS Sprite</a></h2>
+            <p>把所有的小圖壓成一張</p>
+						<img src="http://compass-style.org/images/tutorials/sprites/layout/diagonal.png" alt="CSS sprite">
+            <p><a target="_blank" href="http://ithelp.ithome.com.tw/question/10137007">30天掌握Sass語法 - (28)Compass圖片合併功能(CSS Sprite)</a></p>
+          </section>
+				</section>
+				<section>
+					<section>
+						<h1><a target="_blank" href="http://fireapp.kkbox.com/">Fire.app</a></h1>
+					</section>
+					<section>
+						<h2>不讓命令列成為阻礙</h2>
+						<ul>
+							<li>圖形介面，不用下指令</li>
+							<li>三種平台都可以使用</li>
+							<li>還有 CoffeeScript, LiveScript, Haml, Slim</li>
+						</ul>
+					</section>
+					<section>
+						<h2>其他工具還有</h2>
+						<ul>
+              <li><a target="_blank" href="https://developers.google.com/web/starter-kit/">Web-Starter-Kit</a></li>
+              <li><a target="_blank" href="http://koala-app.com/">Koala</a></li>
+            </ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h1><a target="_blank" href="https://angularjs.org/">AngualrJS</a></h1>
+					</section>
+          <section>
+            <h2>前端 MVC</h2>
+            <p>以前網站這樣運作</p>
+            <img src="images/webserver.png" alt="">
+          </section>
+          <section>
+            <h2>前端 MVC</h2>
+            <p>現在網站這樣運作</p>
+            <img src="images/client-mvc.png" alt="">
+          </section>
+          <section>
+            <h2>除了 AngularJS 以外還有</h2>
+            <ul>
+              <li><a target="_blank" href="http://facebook.github.io/react/">React</a></li>
+              <li><a target="_blank" href="http://emberjs.com/">ember.js</a></li>
+              <li><a target="_blank" href="http://backbonejs.org/">BACKBONE.JS</a></li>
+            </ul>
+          </section>
+					<section>
+						<h2>Two-Way Data Binding</h2>
+            <a class="jsbin-embed" href="http://jsbin.com/yerohe/1/embed?html,output">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script>
+					</section>
+					<section>
+						<h2>Route</h2>
+						<p data-height="365" data-theme-id="0" data-slug-hash="tfjqu" data-default-tab="result" class='codepen'>See the Pen <a href='http://codepen.io/CarterTsai/pen/tfjqu/'>$routeProvide example</a> by CarterTsai (<a href='http://codepen.io/CarterTsai'>@CarterTsai</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+            <script async src="//codepen.io/assets/embed/ei.js"></script>
+					</section>
+          <section>
+            <h2>閱讀清單</h2>
+            <ul>
+              <li><a target="_blank" href="http://ithelp.ithome.com.tw/profile/share?id=20071512">IT 鐵人幫 -  入門AngularJS筆記</a></li>
+              <li><a target="_blank" href="http://abgne.tw/category/angularjs">男丁格爾 - AngularJS 入門教學</a></li>
+              <li><a target="_blank" href="https://www.codeschool.com/courses/shaping-up-with-angular-js">CodeSchool - AngularJS</a></li>
+              <li><a target="_blank" href="https://egghead.io/technologies/angularjs?order=ASC">egghead.io - AngularJS</a></li>
+            </ul>
+          </section>
+				</section>
+				<section>
+          <section>
+            <h2>需要你的回應與鼓勵</h2>
+            <p><a target="_blank" href="https://docs.google.com/forms/d/1aqQJfzPJa9yWOioukNz6sYOClFmAdsp5BuhCULuvFXY/viewform">給點意見讓我們改進</a></p>
+          </section>
+          <section>
+            <h1>Q&A</h1>
+            <h2><a target="_blank" href="https://www.facebook.com/groups/changee.learningpath/">Facebook 社團</a></h2>
+          </section>
+				</section>
+				
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-51808149-1', 'week1.learning-path.info', {
+            'cookieDomain': 'none'
+        });
+        ga('require', 'displayfeatures');
+        ga('send', 'pageview');
+    </script>
+
+	</body>
+</html>
